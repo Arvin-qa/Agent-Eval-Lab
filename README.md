@@ -43,16 +43,17 @@ cases.jsonl + fixtures.json（或 v2 内嵌 tool_state）
 
 验证环境：Windows / PowerShell、Python 3.13.14、Git。依赖固定在 [requirements.txt](requirements.txt)。其他 Python/操作系统组合未在本次发布门禁验证。
 
-**当前为经过脱敏的公开候选副本，尚无公开 GitHub URL。** 在取得本副本后，从其根目录打开 PowerShell：
+**打开 PowerShell，克隆公开仓库并安装依赖：**
 
 ```powershell
+git clone https://github.com/Arvin-qa/Agent-Eval-Lab.git
+cd Agent-Eval-Lab
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip check
 .\.venv\Scripts\python.exe -X utf8 run_eval.py --mode offline
-```
 
-后续命令均从本副本根目录运行。不需要激活脚本、不修改系统编码或环境变量。依赖下载需要网络；评测无需网络。`-X utf8` 只对当前 Python 进程生效，避免 Windows 中文/符号输出编码问题。
+后续命令均从克隆后的仓库根目录运行。不需要激活脚本、不修改系统编码或环境变量。依赖下载需要网络；评测无需网络。-X utf8 只对当前 Python 进程生效，避免 Windows 中文/符号输出编码问题。
 
 命令会打印本次产物目录。打开其中的 `report.md` 看汇总，`traces.jsonl` 看输入、调用、输出、每维 checks 和 `failure_reasons`；`run.json` 保存配置及版本/数据散列。
 
