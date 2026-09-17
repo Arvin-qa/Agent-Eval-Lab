@@ -1,0 +1,40 @@
+{
+  "repeats": 3,
+  "identical": true,
+  "runs": [
+    {
+      "run_id": "det-run1",
+      "pass": 28,
+      "fail": 0,
+      "error": 0,
+      "score": 100.0,
+      "run_errors": [],
+      "exit_code": 0
+    },
+    {
+      "run_id": "det-run2",
+      "pass": 28,
+      "fail": 0,
+      "error": 0,
+      "score": 100.0,
+      "run_errors": [],
+      "exit_code": 0
+    },
+    {
+      "run_id": "det-run3",
+      "pass": 28,
+      "fail": 0,
+      "error": 0,
+      "score": 100.0,
+      "run_errors": [],
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0,
+  "first_difference": null,
+  "comparison_fields": [
+    "agent_output",
+    "tool_calls",
+    "evaluation_result"
+  ]
+}

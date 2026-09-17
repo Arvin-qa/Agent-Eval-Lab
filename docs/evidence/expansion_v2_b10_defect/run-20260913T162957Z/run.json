@@ -1,0 +1,29 @@
+{
+  "run_id": "run-20260913T162957Z",
+  "created_at": "2026-09-13T16:30:19.347187+00:00",
+  "mode": "offline",
+  "scope": "full",
+  "config": {
+    "mode": "offline",
+    "repeat": 1
+  },
+  "identity": {
+    "agent_version": "mock-0.2",
+    "evaluator_version": "0.1",
+    "trace_version": "0.1",
+    "dataset_hash": "f98a4a6fb154d0acabad2730ab0805368f73a165c6306048da623fd7c4ae7d55",
+    "fixtures_hash": null,
+    "tool_schema_hash": "52fbcb4fcbcdbd8acc23916c9fa704258697f88944c024cb4fa1853bc95b14af",
+    "config_hash": "5cf87035af14334fe1b5765a0ccdaaee7b812ae615ba60a578ded39305dcdf8d",
+    "code_commit": "f562d55cabc6e676e21d875ed3502a381979aadc",
+    "dirty": true
+  },
+  "planned_cases": 430,
+  "trials": 430,
+  "artifacts": [
+    "run.json",
+    "traces.jsonl",
+    "report.json",
+    "report.md"
+  ]
+}

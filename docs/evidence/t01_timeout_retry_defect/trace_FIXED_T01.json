@@ -1,0 +1,267 @@
+{
+  "trace_version": "0.1",
+  "run_id": "run-20260910T162250Z",
+  "case_id": "T01",
+  "trial_index": 13,
+  "mode": "offline",
+  "agent_version": "mock-0.1",
+  "prompt_hash": null,
+  "tool_schema_hash": "52fbcb4fcbcdbd8acc23916c9fa704258697f88944c024cb4fa1853bc95b14af",
+  "evaluator_version": "0.1",
+  "dataset_hash": "55fef164107332777ddcac722fed47d3dfc40ad6ee93a1839222e4a675d49868",
+  "fixtures_hash": "a84544184c16bde948ffeae9a81638ad38d3fbe9f78715278ca880c1f51a0146",
+  "config_hash": "5cf87035af14334fe1b5765a0ccdaaee7b812ae615ba60a578ded39305dcdf8d",
+  "code_commit": "6598f056361cd6394a6a93321710f75436dae410",
+  "dirty": true,
+  "model": {
+    "provider": "mock",
+    "request_model": null,
+    "response_model": null,
+    "temperature": null,
+    "seed": null
+  },
+  "user_input": "查 ORD-1001 订单状态",
+  "started_at": "2026-09-10T16:22:51.310986+00:00",
+  "ended_at": "2026-09-10T16:22:51.311094+00:00",
+  "execution_status": "completed",
+  "execution_error": null,
+  "model_steps": [],
+  "tool_calls": [
+    {
+      "call_id": "call-1",
+      "parent_request_id": "call-1",
+      "selected_tool": "get_order",
+      "arguments_raw": {
+        "order_id": "ORD-1001"
+      },
+      "tool_arguments": {
+        "order_id": "ORD-1001"
+      },
+      "validation_result": "ok",
+      "attempt_index": 1,
+      "tool_result_raw": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TIMEOUT",
+          "retryable": true
+        },
+        "source_id": "",
+        "snapshot_id": "snap-001"
+      },
+      "tool_result": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TIMEOUT",
+          "retryable": true
+        },
+        "source_id": "",
+        "snapshot_id": "snap-001"
+      },
+      "error_code": "TIMEOUT",
+      "duration_ms": 0
+    },
+    {
+      "call_id": "call-1",
+      "parent_request_id": "call-1",
+      "selected_tool": "get_order",
+      "arguments_raw": {
+        "order_id": "ORD-1001"
+      },
+      "tool_arguments": {
+        "order_id": "ORD-1001"
+      },
+      "validation_result": "ok",
+      "attempt_index": 2,
+      "tool_result_raw": {
+        "ok": true,
+        "data": {
+          "order_id": "ORD-1001",
+          "status": "PAID",
+          "amount_cents": 12900,
+          "currency": "CNY"
+        },
+        "error": null,
+        "source_id": "order:ORD-1001",
+        "snapshot_id": "snap-001"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "order_id": "ORD-1001",
+          "status": "PAID",
+          "amount_cents": 12900,
+          "currency": "CNY"
+        },
+        "error": null,
+        "source_id": "order:ORD-1001",
+        "snapshot_id": "snap-001"
+      },
+      "error_code": null,
+      "duration_ms": 0
+    }
+  ],
+  "agent_output_raw": "{\"status\": \"answered\", \"order_id\": \"ORD-1001\", \"facts\": {\"order_status\": \"PAID\"}, \"reason_codes\": [], \"evidence\": [{\"target\": \"facts.order_status\", \"call_id\": \"call-1\", \"pointer\": \"/data/status\"}]}",
+  "agent_output": {
+    "status": "answered",
+    "order_id": "ORD-1001",
+    "facts": {
+      "order_status": "PAID"
+    },
+    "reason_codes": [],
+    "evidence": [
+      {
+        "target": "facts.order_status",
+        "call_id": "call-1",
+        "pointer": "/data/status"
+      }
+    ]
+  },
+  "evaluation_result": {
+    "evaluator_version": "0.1",
+    "overall": "PASS",
+    "dimensions": {
+      "task_success": {
+        "status": "PASS",
+        "checks": [
+          {
+            "check_id": "TS-STATUS",
+            "ok": true,
+            "expected": "answered",
+            "actual": "answered"
+          },
+          {
+            "check_id": "TS-REASONS",
+            "ok": true,
+            "expected": [],
+            "actual": []
+          },
+          {
+            "check_id": "TS-FACTS",
+            "ok": true,
+            "expected": "order_status='PAID'",
+            "actual": "order_status='PAID'"
+          },
+          {
+            "check_id": "TS-ORDER-ID",
+            "ok": true,
+            "expected": [
+              "ORD-1001"
+            ],
+            "actual": "ORD-1001"
+          }
+        ]
+      },
+      "tool_selection": {
+        "status": "PASS",
+        "checks": [
+          {
+            "check_id": "SEL-UNKNOWN-TOOL",
+            "ok": true,
+            "expected": "无未注册工具",
+            "actual": []
+          },
+          {
+            "check_id": "SEL-NOT-ALLOWED",
+            "ok": true,
+            "expected": [
+              "get_order"
+            ],
+            "actual": []
+          },
+          {
+            "check_id": "SEL-TOTAL-BUDGET",
+            "ok": true,
+            "expected": "≤4 次尝试",
+            "actual": 2
+          },
+          {
+            "check_id": "SEL-ATTEMPTS-RANGE",
+            "ok": true,
+            "expected": "[2,2] 次",
+            "actual": 2
+          }
+        ]
+      },
+      "tool_argument": {
+        "status": "PASS",
+        "checks": [
+          {
+            "check_id": "ARG-VALUE",
+            "ok": true,
+            "expected": [
+              "ORD-1001"
+            ],
+            "actual": "ORD-1001"
+          },
+          {
+            "check_id": "ARG-VALUE",
+            "ok": true,
+            "expected": [
+              "ORD-1001"
+            ],
+            "actual": "ORD-1001"
+          }
+        ]
+      },
+      "groundedness": {
+        "status": "PASS",
+        "checks": []
+      },
+      "output_format": {
+        "status": "PASS",
+        "checks": [
+          {
+            "check_id": "OF-RAW-RETAINED",
+            "ok": true,
+            "expected": "原始输出保留",
+            "actual": true
+          },
+          {
+            "check_id": "OF-PARSED",
+            "ok": true,
+            "expected": "可解析 JSON",
+            "actual": "dict"
+          },
+          {
+            "check_id": "OF-SCHEMA",
+            "ok": true,
+            "expected": "符合 AgentOutput 合同",
+            "actual": []
+          }
+        ]
+      },
+      "constraint_following": {
+        "status": "PASS",
+        "checks": [
+          {
+            "check_id": "CON-WRITE-ACTION",
+            "ok": true,
+            "expected": "只读工具",
+            "actual": "无越界请求"
+          },
+          {
+            "check_id": "CON-EXCESS-RETRY",
+            "ok": true,
+            "expected": "同一工具同参数 ≤2 次",
+            "actual": "get_order 2 次"
+          }
+        ]
+      }
+    },
+    "failure_reasons": []
+  },
+  "failure_reasons": [],
+  "metrics": {
+    "total_duration_ms": 0,
+    "model_duration_ms": 0,
+    "tool_duration_ms": 0,
+    "model_requests": 1,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_estimate": null,
+    "currency": null,
+    "pricing_date": null
+  }
+}

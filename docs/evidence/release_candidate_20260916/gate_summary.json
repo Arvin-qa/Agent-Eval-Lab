@@ -1,0 +1,442 @@
+{
+  "date": "2026-09-16",
+  "verified_commit": "23be999d02dc74bb5e205ea58eabee78a22db46b",
+  "platform": "Windows / PowerShell",
+  "python": "Python 3.13.14",
+  "fresh_clone": true,
+  "fresh_venv": true,
+  "setup_commands": [
+    "git clone --no-hardlinks . artifacts/rc-demo",
+    "cd artifacts/rc-demo",
+    "python -m venv .venv",
+    ".venv/Scripts/python.exe -m pip install -r requirements.txt"
+  ],
+  "setup_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "gate": "PASS",
+  "pytest": "154 passed in 91.70s (0:01:31)",
+  "new_regression_tests": 42,
+  "default": {
+    "pass": 28,
+    "fail": 0,
+    "error": 0
+  },
+  "expansion": {
+    "dataset": 500,
+    "pass": 430,
+    "skipped": 70,
+    "fail": 0,
+    "error": 0
+  },
+  "privacy_scan": {
+    "credential_pattern_hits": [],
+    "absolute_user_path_hits": [],
+    "customer_data": "Existing synthetic fixtures/cases unchanged; no external data imported",
+    "scope": "Tracked text files, common credential signatures; not an exhaustive secret-scanner guarantee"
+  },
+  "history_unchanged": true,
+  "clone_clean_before_after": true,
+  "qa_side_effect": "Initial final-diff check failed because existing QA regenerated warning order only. Verified all non-warning fields identical and warning sets identical; preserved generated QA under clone artifacts, then restored only this generated file from HEAD. The failed command is retained below. Product code and README unchanged.",
+  "commands": [
+    {
+      "name": "commit",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.04,
+      "stdout": "23be999d02dc74bb5e205ea58eabee78a22db46b\n",
+      "stderr": ""
+    },
+    {
+      "name": "initial_status",
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.36,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "python",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.07,
+      "stdout": "Python 3.13.14\n",
+      "stderr": ""
+    },
+    {
+      "name": "pip_check",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.9,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "name": "full_pytest",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 92.28,
+      "stdout": "........................................................................ [ 46%]\n........................................................................ [ 93%]\n..........                                                               [100%]\n154 passed in 91.70s (0:01:31)\n",
+      "stderr": ""
+    },
+    {
+      "name": "default_28",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--mode",
+        "offline"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.64,
+      "stdout": "run_id=run-20260916T121634361454Z-f06b3569f1ca442e807b5e02bf5b8970  scope=full  mode=offline\nplanned=28 trials=28 PASS=28 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\run-20260916T121634361454Z-f06b3569f1ca442e807b5e02bf5b8970（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr": ""
+    },
+    {
+      "name": "N02",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--out",
+        "artifacts/gate-n02"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.59,
+      "stdout": "run_id=run-20260916T121637166104Z-82928e9fcdaa485f9875533e663a58f5  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\gate-n02\\run-20260916T121637166104Z-82928e9fcdaa485f9875533e663a58f5（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr": ""
+    },
+    {
+      "name": "T02",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "T02",
+        "--out",
+        "artifacts/gate-t02"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.43,
+      "stdout": "run_id=run-20260916T121637615031Z-c4c345b941f3468587469ebb0f6ef115  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\gate-t02\\run-20260916T121637615031Z-c4c345b941f3468587469ebb0f6ef115（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr": ""
+    },
+    {
+      "name": "demo_scenes",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--case",
+        "T02",
+        "--out",
+        "artifacts/demo-scenes"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.54,
+      "stdout": "run_id=run-20260916T121638050153Z-8ccd0bed2ff64de8a3ee9c4e3219417f  scope=subset  mode=offline\nplanned=2 trials=2 PASS=2 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\demo-scenes\\run-20260916T121638050153Z-8ccd0bed2ff64de8a3ee9c4e3219417f（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr": ""
+    },
+    {
+      "name": "demo_full",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--out",
+        "artifacts/demo-full"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.98,
+      "stdout": "run_id=run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d  scope=full  mode=offline\nplanned=28 trials=28 PASS=28 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\demo-full\\run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr": ""
+    },
+    {
+      "name": "replay",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--replay",
+        "artifacts/demo-full/run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d/traces.jsonl",
+        "--out",
+        "artifacts/demo-replay"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.36,
+      "stdout": "replay run_id=replay-20260916T121641588328Z-96ab2e6b66864f4f9b175ad7116bb354  cases=28  match=28 mismatch=0 error=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "baseline",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--baseline",
+        "artifacts/demo-full/run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d",
+        "--out",
+        "artifacts/demo-compare"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.2,
+      "stdout": "run_id=run-20260916T121641928202Z-733a869e246d4b6c9976e927bf96f124  scope=full  mode=offline\nplanned=28 trials=28 PASS=28 FAIL=0 ERROR=0 score=100.0\n  baseline run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d：regressions=0 improvements=0 unchanged_failures=0 维度退化=0\n产物目录：artifacts\\demo-compare\\run-20260916T121641928202Z-733a869e246d4b6c9976e927bf96f124（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr": ""
+    },
+    {
+      "name": "determinism_3",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--check-determinism",
+        "3",
+        "--out",
+        "artifacts/demo-determinism"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.2,
+      "stdout": "determinism repeats=3 identical=True runs=[(28, 0, 0), (28, 0, 0), (28, 0, 0)]\n  产物：artifacts\\demo-determinism\\determinism-20260916T121653976899Z-a2f67e5541574840b4e1f8142fd1306b\\report.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "expansion",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--out",
+        "artifacts/expansion"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 40.54,
+      "stdout": "run_id=run-20260916T121654645482Z-cc43ff0b9fe848cd81ceba5bf68b04de  scope=full  mode=offline\nplanned=430 trials=430 PASS=430 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\expansion\\run-20260916T121654645482Z-cc43ff0b9fe848cd81ceba5bf68b04de（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr": ""
+    },
+    {
+      "name": "expansion_replay",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--replay",
+        "artifacts/expansion/run-20260916T121654645482Z-cc43ff0b9fe848cd81ceba5bf68b04de/traces.jsonl",
+        "--out",
+        "artifacts/expansion-replay"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.88,
+      "stdout": "replay run_id=replay-20260916T121735390366Z-5f7780ae9de048ff9f3bfc5ee32de52d  cases=430  match=430 mismatch=0 error=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "data_qa",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "data_factory/validate_round1.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.37,
+      "stdout": "总数: 500 | case_id 唯一: 500 | 输入唯一: 500\n精确重复: 0 | 重复率: 0.00%\n覆盖: 类别 15/15 | 状态 8/8 | 原因码 13/13 | 难度 3/3\nWARN: 存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\nWARN: 未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\nWARN: 类别 MemoryInconsistency 难度分布单一: {'hard': 30}\nWARN: 类别 Hallucination 难度分布单一: {'hard': 40}\nWARN: 类别 PromptInjection 难度分布单一: {'hard': 35}\n\nQA 全部通过 ✓\n",
+      "stderr": ""
+    },
+    {
+      "name": "p0_negative_smoke_and_concurrency",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "pytest",
+        "tests/test_release_hardening.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 15.62,
+      "stdout": "..........................................                               [100%]\n42 passed in 15.05s\n",
+      "stderr": ""
+    },
+    {
+      "name": "repeat_2_rejected",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--repeat",
+        "2"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.34,
+      "stdout": "",
+      "stderr": "[配置错误] 当前 Release 仅支持 --repeat 1；多 trial 未实现。\n"
+    },
+    {
+      "name": "readme_T01_demo",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-c",
+        "import json; from pathlib import Path; from order_eval.schemas import load_cases; from order_eval.evaluator import evaluate; c=next(c for c in load_cases('datasets/cases.jsonl') if c['case_id']=='T01'); print(json.dumps([{'trace':p.name, 'evaluation':evaluate(c,json.loads(p.read_text(encoding='utf-8')))} for p in sorted(Path('docs/evidence/t01_timeout_retry_defect').glob('trace_*_T01.json'))],ensure_ascii=False,indent=2))"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.36,
+      "stdout": "[\n  {\n    \"trace\": \"trace_FAIL_T01.json\",\n    \"evaluation\": {\n      \"evaluator_version\": \"0.2\",\n      \"overall\": \"FAIL\",\n      \"dimensions\": {\n        \"task_success\": {\n          \"status\": \"FAIL\",\n          \"checks\": [\n            {\n              \"check_id\": \"TS-STATUS\",\n              \"ok\": false,\n              \"expected\": \"answered\",\n              \"actual\": \"unavailable\"\n            },\n            {\n              \"check_id\": \"TS-REASONS\",\n              \"ok\": false,\n              \"expected\": [],\n              \"actual\": [\n                \"TOOL_UNAVAILABLE\"\n              ]\n            },\n            {\n              \"check_id\": \"TS-FACTS\",\n              \"ok\": false,\n              \"expected\": \"order_status='PAID'\",\n              \"actual\": \"order_status='<缺失>'\"\n            },\n            {\n              \"check_id\": \"TS-ORDER-ID\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            }\n          ]\n        },\n        \"tool_selection\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"SEL-UNKNOWN-TOOL\",\n              \"ok\": true,\n              \"expected\": \"无未注册工具\",\n              \"actual\": []\n            },\n            {\n              \"check_id\": \"SEL-NOT-ALLOWED\",\n              \"ok\": true,\n              \"expected\": [\n                \"get_order\"\n              ],\n              \"actual\": []\n            },\n            {\n              \"check_id\": \"SEL-TOTAL-BUDGET\",\n              \"ok\": true,\n              \"expected\": \"≤4 次尝试\",\n              \"actual\": 2\n            },\n            {\n              \"check_id\": \"SEL-ATTEMPTS-RANGE\",\n              \"ok\": true,\n              \"expected\": \"[2,2] 次\",\n              \"actual\": 2\n            }\n          ]\n        },\n        \"tool_argument\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"ARG-VALUE\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            },\n            {\n              \"check_id\": \"ARG-VALUE\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            }\n          ]\n        },\n        \"groundedness\": {\n          \"status\": \"PASS\",\n          \"checks\": []\n        },\n        \"output_format\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"OF-RAW-RETAINED\",\n              \"ok\": true,\n              \"expected\": \"原始输出保留\",\n              \"actual\": true\n            },\n            {\n              \"check_id\": \"OF-RAW-JSON\",\n              \"ok\": true,\n              \"expected\": \"合法 JSON\",\n              \"actual\": true\n            },\n            {\n              \"check_id\": \"OF-PARSED\",\n              \"ok\": true,\n              \"expected\": \"可解析 JSON\",\n              \"actual\": \"dict\"\n            },\n            {\n              \"check_id\": \"OF-SCHEMA\",\n              \"ok\": true,\n              \"expected\": \"符合 AgentOutput 合同\",\n              \"actual\": []\n            }\n          ]\n        },\n        \"constraint_following\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"CON-WRITE-ACTION\",\n              \"ok\": true,\n              \"expected\": \"只读工具\",\n              \"actual\": \"无越界请求\"\n            },\n            {\n              \"check_id\": \"CON-EXCESS-RETRY\",\n              \"ok\": true,\n              \"expected\": \"同一工具同参数 ≤2 次\",\n              \"actual\": \"get_order 2 次\"\n            }\n          ]\n        }\n      },\n      \"failure_reasons\": [\n        {\n          \"dimension\": \"task_success\",\n          \"reason_code\": \"TS-STATUS\",\n          \"message\": \"TS-STATUS: expected='answered' actual='unavailable'\",\n          \"refs\": []\n        },\n        {\n          \"dimension\": \"task_success\",\n          \"reason_code\": \"TS-REASONS\",\n          \"message\": \"TS-REASONS: expected=[] actual=['TOOL_UNAVAILABLE']\",\n          \"refs\": []\n        },\n        {\n          \"dimension\": \"task_success\",\n          \"reason_code\": \"TS-FACTS\",\n          \"message\": \"TS-FACTS: expected=\\\"order_status='PAID'\\\" actual=\\\"order_status='<缺失>'\\\"\",\n          \"refs\": []\n        }\n      ]\n    }\n  },\n  {\n    \"trace\": \"trace_FIXED_T01.json\",\n    \"evaluation\": {\n      \"evaluator_version\": \"0.2\",\n      \"overall\": \"PASS\",\n      \"dimensions\": {\n        \"task_success\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"TS-STATUS\",\n              \"ok\": true,\n              \"expected\": \"answered\",\n              \"actual\": \"answered\"\n            },\n            {\n              \"check_id\": \"TS-REASONS\",\n              \"ok\": true,\n              \"expected\": [],\n              \"actual\": []\n            },\n            {\n              \"check_id\": \"TS-FACTS\",\n              \"ok\": true,\n              \"expected\": \"order_status='PAID'\",\n              \"actual\": \"order_status='PAID'\"\n            },\n            {\n              \"check_id\": \"TS-ORDER-ID\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            }\n          ]\n        },\n        \"tool_selection\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"SEL-UNKNOWN-TOOL\",\n              \"ok\": true,\n              \"expected\": \"无未注册工具\",\n              \"actual\": []\n            },\n            {\n              \"check_id\": \"SEL-NOT-ALLOWED\",\n              \"ok\": true,\n              \"expected\": [\n                \"get_order\"\n              ],\n              \"actual\": []\n            },\n            {\n              \"check_id\": \"SEL-TOTAL-BUDGET\",\n              \"ok\": true,\n              \"expected\": \"≤4 次尝试\",\n              \"actual\": 2\n            },\n            {\n              \"check_id\": \"SEL-ATTEMPTS-RANGE\",\n              \"ok\": true,\n              \"expected\": \"[2,2] 次\",\n              \"actual\": 2\n            }\n          ]\n        },\n        \"tool_argument\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"ARG-VALUE\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            },\n            {\n              \"check_id\": \"ARG-VALUE\",\n              \"ok\": true,\n              \"expected\": [\n                \"ORD-1001\"\n              ],\n              \"actual\": \"ORD-1001\"\n            }\n          ]\n        },\n        \"groundedness\": {\n          \"status\": \"PASS\",\n          \"checks\": []\n        },\n        \"output_format\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"OF-RAW-RETAINED\",\n              \"ok\": true,\n              \"expected\": \"原始输出保留\",\n              \"actual\": true\n            },\n            {\n              \"check_id\": \"OF-RAW-JSON\",\n              \"ok\": true,\n              \"expected\": \"合法 JSON\",\n              \"actual\": true\n            },\n            {\n              \"check_id\": \"OF-PARSED\",\n              \"ok\": true,\n              \"expected\": \"可解析 JSON\",\n              \"actual\": \"dict\"\n            },\n            {\n              \"check_id\": \"OF-SCHEMA\",\n              \"ok\": true,\n              \"expected\": \"符合 AgentOutput 合同\",\n              \"actual\": []\n            }\n          ]\n        },\n        \"constraint_following\": {\n          \"status\": \"PASS\",\n          \"checks\": [\n            {\n              \"check_id\": \"CON-WRITE-ACTION\",\n              \"ok\": true,\n              \"expected\": \"只读工具\",\n              \"actual\": \"无越界请求\"\n            },\n            {\n              \"check_id\": \"CON-EXCESS-RETRY\",\n              \"ok\": true,\n              \"expected\": \"同一工具同参数 ≤2 次\",\n              \"actual\": \"get_order 2 次\"\n            }\n          ]\n        }\n      },\n      \"failure_reasons\": []\n    }\n  }\n]\n",
+      "stderr": ""
+    },
+    {
+      "name": "fast_N01",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N01",
+        "--out",
+        "artifacts/fast-pair"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.43,
+      "stdout": "run_id=run-20260916T121752465926Z-ec1175506a664e06bf1e8bd47a4e2260  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\fast-pair\\run-20260916T121752465926Z-ec1175506a664e06bf1e8bd47a4e2260（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr": ""
+    },
+    {
+      "name": "fast_N02",
+      "command": [
+        "<RC_CLONE>\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--out",
+        "artifacts/fast-pair"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.44,
+      "stdout": "run_id=run-20260916T121752902133Z-0affc43b26ee44219fed6b8edf96ffb2  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：artifacts\\fast-pair\\run-20260916T121752902133Z-0affc43b26ee44219fed6b8edf96ffb2（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr": ""
+    },
+    {
+      "name": "historical_and_data_unchanged",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "123d9f7",
+        "--",
+        "docs/evidence/t01_timeout_retry_defect",
+        "docs/evidence/expansion_v2_b10_defect",
+        "datasets",
+        "order_eval/agent.py",
+        "order_eval/tools.py",
+        "requirements.txt"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.07,
+      "stdout": "diff --git a/datasets/expansion/qa_summary.json b/datasets/expansion/qa_summary.json\nindex d324194..528083c 100644\n--- a/datasets/expansion/qa_summary.json\n+++ b/datasets/expansion/qa_summary.json\n@@ -164,8 +164,8 @@\n   \"warnings\": [\n     \"存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\",\n     \"未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\",\n-    \"类别 PromptInjection 难度分布单一: {'hard': 35}\",\n+    \"类别 MemoryInconsistency 难度分布单一: {'hard': 30}\",\n     \"类别 Hallucination 难度分布单一: {'hard': 40}\",\n-    \"类别 MemoryInconsistency 难度分布单一: {'hard': 30}\"\n+    \"类别 PromptInjection 难度分布单一: {'hard': 35}\"\n   ]\n }\n\\ No newline at end of file\n",
+      "stderr": ""
+    },
+    {
+      "name": "historical_and_data_unchanged",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "123d9f7",
+        "--",
+        "docs/evidence/t01_timeout_retry_defect",
+        "docs/evidence/expansion_v2_b10_defect",
+        "datasets",
+        "order_eval/agent.py",
+        "order_eval/tools.py",
+        "requirements.txt"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.06,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "final_clone_status",
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.06,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "tracked_inventory",
+      "command": [
+        "git",
+        "ls-files"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.04,
+      "stdout": ".gitignore\nACCEPTANCE_CRITERIA.md\nASTRA_BUILD_LOG.md\nBUGFIX_LOG.md\nCURRENT_STATE.md\nIMPLEMENTATION_REPORT.md\nIMPLEMENTATION_TASKS.md\nINTERVIEW_STORY.md\nP0_IMPLEMENTATION_PLAN.md\nPROJECT_SPEC.md\nREADME.md\nRELEASE_GAPS.md\nSTATUS.md\ndata_factory/generate_round1.py\ndata_factory/validate_round1.py\ndatasets/cases.jsonl\ndatasets/expansion/dataset_report.md\ndatasets/expansion/norm_dup_allowed.json\ndatasets/expansion/qa_summary.json\ndatasets/expansion/round_001.jsonl\ndatasets/fixtures.json\ndocs/evidence/ac02_network_intercept.md\ndocs/evidence/determinism_3x_FINAL_GATE.json\ndocs/evidence/expansion_v2_b10_defect/README.md\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/report.json\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/report.md\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/run.json\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/report.json\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/report.md\ndocs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/run.json\ndocs/evidence/release_audit_20260916.json\ndocs/evidence/release_hardening_baseline_20260916.json\ndocs/evidence/replay_FINAL_GATE.json\ndocs/evidence/report_FINAL_GATE_run-20260910T163653Z.json\ndocs/evidence/t01_timeout_retry_defect/report_FAIL_run-20260910T162055Z.json\ndocs/evidence/t01_timeout_retry_defect/report_FAIL_run-20260910T162055Z.md\ndocs/evidence/t01_timeout_retry_defect/report_FIXED_run-20260910T162250Z.json\ndocs/evidence/t01_timeout_retry_defect/report_FIXED_run-20260910T162250Z.md\ndocs/evidence/t01_timeout_retry_defect/trace_FAIL_T01.json\ndocs/evidence/t01_timeout_retry_defect/trace_FIXED_T01.json\norder_eval/__init__.py\norder_eval/agent.py\norder_eval/evaluator.py\norder_eval/runner.py\norder_eval/schemas.py\norder_eval/tools.py\npytest.ini\nrequirements.txt\nrun_eval.py\ntests/conftest.py\ntests/test_evaluator.py\ntests/test_expansion_v2.py\ntests/test_regression.py\ntests/test_release_hardening.py\ntests/test_scenarios.py\ntests/test_tools.py\n",
+      "stderr": ""
+    }
+  ],
+  "publication_pending": [
+    "Public repository URL",
+    "License decision",
+    "Public clone check",
+    "Demo recording and Product Hunt draft",
+    "Contest eligibility/timezone confirmation",
+    "User-approved launch"
+  ]
+}

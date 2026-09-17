@@ -1,0 +1,128 @@
+{
+  "run_id": "run-20260910T162055Z",
+  "created_at": "2026-09-10T16:20:56.511571+00:00",
+  "mode": "offline",
+  "scope": "full",
+  "planned_cases": 28,
+  "trials": 28,
+  "distinct_cases": 28,
+  "pass": 27,
+  "fail": 1,
+  "error": 0,
+  "score": 96.43,
+  "dimension_summary": {
+    "task_success": {
+      "pass": 27,
+      "fail": 1,
+      "na": 0
+    },
+    "tool_selection": {
+      "pass": 28,
+      "fail": 0,
+      "na": 0
+    },
+    "tool_argument": {
+      "pass": 23,
+      "fail": 0,
+      "na": 5
+    },
+    "groundedness": {
+      "pass": 28,
+      "fail": 0,
+      "na": 0
+    },
+    "output_format": {
+      "pass": 28,
+      "fail": 0,
+      "na": 0
+    },
+    "constraint_following": {
+      "pass": 28,
+      "fail": 0,
+      "na": 0
+    }
+  },
+  "category_summary": {
+    "Normal": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    },
+    "Boundary": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    },
+    "Invalid Input": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    },
+    "Tool Failure": {
+      "pass": 3,
+      "fail": 1,
+      "error": 0
+    },
+    "Missing Data": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    },
+    "Conflicting Data": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    },
+    "Hallucination Trap": {
+      "pass": 4,
+      "fail": 0,
+      "error": 0
+    }
+  },
+  "tool_summary": {
+    "get_order": {
+      "attempts": 25,
+      "argument_rejected": 0,
+      "backend_faults": 3,
+      "invalid_results": 2
+    },
+    "get_shipment": {
+      "attempts": 10,
+      "argument_rejected": 0,
+      "backend_faults": 1,
+      "invalid_results": 0
+    }
+  },
+  "failure_cases": [
+    {
+      "case_id": "T01",
+      "input": "查 ORD-1001 订单状态",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "task_success"
+      ],
+      "reasons": [
+        "task_success/TS-STATUS",
+        "task_success/TS-REASONS",
+        "task_success/TS-FACTS"
+      ]
+    }
+  ],
+  "comparison": null,
+  "identity": {
+    "agent_version": "mock-0.1",
+    "evaluator_version": "0.1",
+    "trace_version": "0.1",
+    "dataset_hash": "55fef164107332777ddcac722fed47d3dfc40ad6ee93a1839222e4a675d49868",
+    "fixtures_hash": "a84544184c16bde948ffeae9a81638ad38d3fbe9f78715278ca880c1f51a0146",
+    "tool_schema_hash": "52fbcb4fcbcdbd8acc23916c9fa704258697f88944c024cb4fa1853bc95b14af",
+    "config_hash": "5cf87035af14334fe1b5765a0ccdaaee7b812ae615ba60a578ded39305dcdf8d",
+    "code_commit": "54df40cfb61a939f5b91ea0da3c9d065ef545304",
+    "dirty": true
+  },
+  "notes": [
+    "合成数据（synthetic），来源为本项目业务合同，无真实客户/订单。",
+    "offline 模式为确定性 MockAgent + 本地 FixtureTools，证明评测基础设施，不是语言模型能力基准。",
+    "工具后端故障为规格注入的测试条件，与 Agent 工具选择错误分开统计。"
+  ]
+}

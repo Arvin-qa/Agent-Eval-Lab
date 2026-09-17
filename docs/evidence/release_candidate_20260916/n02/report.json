@@ -1,0 +1,92 @@
+{
+  "run_id": "run-20260916T121637166104Z-82928e9fcdaa485f9875533e663a58f5",
+  "created_at": "2026-09-16T12:16:37.268413+00:00",
+  "mode": "offline",
+  "scope": "subset",
+  "planned_cases": 1,
+  "dataset_cases": 1,
+  "skipped_cases": {
+    "count": 0,
+    "reason": null,
+    "case_ids": []
+  },
+  "trials": 1,
+  "distinct_cases": 1,
+  "pass": 1,
+  "fail": 0,
+  "error": 0,
+  "infrastructure_errors": 0,
+  "run_errors": [],
+  "score": 100.0,
+  "dimension_summary": {
+    "task_success": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    },
+    "tool_selection": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    },
+    "tool_argument": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    },
+    "groundedness": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    },
+    "output_format": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    },
+    "constraint_following": {
+      "pass": 1,
+      "fail": 0,
+      "na": 0
+    }
+  },
+  "category_summary": {
+    "Normal": {
+      "pass": 1,
+      "fail": 0,
+      "error": 0
+    }
+  },
+  "tool_summary": {
+    "get_order": {
+      "attempts": 1,
+      "argument_rejected": 0,
+      "backend_faults": 0,
+      "invalid_results": 0
+    },
+    "get_shipment": {
+      "attempts": 1,
+      "argument_rejected": 0,
+      "backend_faults": 0,
+      "invalid_results": 0
+    }
+  },
+  "failure_cases": [],
+  "comparison": null,
+  "identity": {
+    "agent_version": "mock-0.2",
+    "evaluator_version": "0.2",
+    "trace_version": "0.1",
+    "dataset_hash": "55fef164107332777ddcac722fed47d3dfc40ad6ee93a1839222e4a675d49868",
+    "fixtures_hash": "342fb6fe4d930749869f09713782066ecb4087ed33722a60df524cac4f60ffb6",
+    "tool_schema_hash": "52fbcb4fcbcdbd8acc23916c9fa704258697f88944c024cb4fa1853bc95b14af",
+    "config_hash": "5cf87035af14334fe1b5765a0ccdaaee7b812ae615ba60a578ded39305dcdf8d",
+    "code_commit": "23be999d02dc74bb5e205ea58eabee78a22db46b",
+    "dirty": false
+  },
+  "notes": [
+    "合成数据（synthetic），来源为本项目业务合同，无真实客户/订单。",
+    "offline 模式为确定性 MockAgent + 本地 FixtureTools，证明评测基础设施，不是语言模型能力基准。",
+    "工具后端故障为规格注入的测试条件，与 Agent 工具选择错误分开统计。"
+  ]
+}

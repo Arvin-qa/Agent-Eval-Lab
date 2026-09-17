@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+artifacts/
+# 精选演示证据后续用 ! 逐个放行
+
+# Local credentials and machine-specific state must not enter a public commit.
+.env
+.env.*
+!.env.example
+!.env.template
+*.key
+*.pem
+*.p12
+*.pfx
+.vscode/
+.idea/
+.codex/
+*.dmp
+*.dump

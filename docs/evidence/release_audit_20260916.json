@@ -1,0 +1,1016 @@
+{
+  "audit_date": "2026-09-16",
+  "source_commit": "123d9f75a1c95d8bb9701f7da2972984a5508e13",
+  "scope": "Phase 1 audit only; existing application code, tests, dependencies, README and datasets unchanged.",
+  "environment": {
+    "platform": "Windows 11",
+    "python": "3.13.14",
+    "installation": "Fresh local git clone with --no-hardlinks; new venv; pip install -r requirements.txt succeeded; no shared config modified.",
+    "encoding": "Main audit subprocesses used process-local PYTHONIOENCODING=utf-8. Supplementary QA reproduced native GBK failure and verified python -X utf8.",
+    "public_clone_tested": false,
+    "other_platforms_tested": false
+  },
+  "astra_provenance": {
+    "model": "GPT-6 Astra",
+    "verification": "Model participation was verified from local Codex task metadata during the build. Private identifiers and internal metadata fields are omitted; no historical work attributed."
+  },
+  "command_count": 42,
+  "commands": [
+    {
+      "name": "identity",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.043,
+      "stdout": "123d9f75a1c95d8bb9701f7da2972984a5508e13\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "initial_status",
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.075,
+      "stdout": "",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "pip_check",
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.957,
+      "stdout": "No broken requirements found.\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "pip_freeze",
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "freeze"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.616,
+      "stdout": "attrs==26.1.0\ncolorama==0.4.6\niniconfig==2.3.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\npackaging==26.3\npluggy==1.6.0\nPygments==2.21.0\npytest==9.0.3\nreferencing==0.37.0\nrpds-py==2026.6.3\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "runtime",
+      "command": [
+        "python",
+        "-c",
+        "import sys,platform; print(sys.executable); print(sys.version); print(platform.platform())"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.326,
+      "stdout": "python\nPython 3.13.14\nWindows 11\n",
+      "public_redaction": "Python build/compiler details and OS build identifier omitted; version and OS family retained.",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "pytest",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 89.506,
+      "stdout": "........................................................................ [ 64%]\n........................................                                 [100%]\n112 passed in 88.45s (0:01:28)\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "help",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--help"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.528,
+      "stdout": "usage: run_eval.py [-h] [--mode {offline,llm}] [--case CASE_ID]\n                   [--dataset DATASET] [--fixtures FIXTURES] [--out OUT]\n                   [--repeat REPEAT] [--replay TRACES_JSONL]\n                   [--baseline RUN_DIR_OR_REPORT] [--check-determinism N]\n\n只读订单查询 Agent 的离线评测（合成数据，Mock 参考实现）\n\noptions:\n  -h, --help            show this help message and exit\n  --mode {offline,llm}  offline=确定性 Mock（默认，无 Key）；llm=P1 未实现，明确报错\n  --case CASE_ID        只跑指定 Case（可重复）；报告标记 subset，不替代全量验收\n  --dataset DATASET     冻结的 cases.jsonl\n  --fixtures FIXTURES   fixtures.json\n  --out OUT             产物目录 artifacts/<run_id>/\n  --repeat REPEAT       每条 Case 重复次数（分母=planned×repeat；P0 仅用于确定性验证）\n  --replay TRACES_JSONL\n                        重放：只读旧 Trace 由相同 Evaluator 重评，不执行 Agent/工具\n  --baseline RUN_DIR_OR_REPORT\n                        与一次已保存运行比较；不可比返回 NOT_COMPARABLE 并退出 2\n  --check-determinism N\n                        全量离线连续执行 N 次（N>=2），剥离易变字段后比较结构化一致性\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "offline",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--mode",
+        "offline",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\offline"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 3.257,
+      "stdout": "run_id=run-20260916T064955Z  scope=full  mode=offline\nplanned=28 trials=28 PASS=28 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\offline\\run-20260916T064955Z（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "subset_n02",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\subset_n02"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.559,
+      "stdout": "run_id=run-20260916T064958Z  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\subset_n02\\run-20260916T064958Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "subset_t02",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "T02",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\subset_t02"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.755,
+      "stdout": "run_id=run-20260916T064959Z  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\subset_t02\\run-20260916T064959Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "replay",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\offline\\run-20260916T064955Z\\traces.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\replay"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.912,
+      "stdout": "replay run_id=replay-20260916T065000Z  cases=28  match=28 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "baseline",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--baseline",
+        "<AUDIT_ARTIFACTS>\\offline\\run-20260916T064955Z",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\baseline"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 3.447,
+      "stdout": "run_id=run-20260916T065000Z  scope=full  mode=offline\nplanned=28 trials=28 PASS=28 FAIL=0 ERROR=0 score=100.0\n  baseline run-20260916T064955Z：regressions=0 improvements=0 unchanged_failures=0 维度退化=0\n产物目录：<AUDIT_ARTIFACTS>\\baseline\\run-20260916T065000Z（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "determinism",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--check-determinism",
+        "3",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\determinism"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 8.295,
+      "stdout": "determinism repeats=3 identical=True runs=[(28, 0, 0), (28, 0, 0), (28, 0, 0)]\n  产物：<AUDIT_ARTIFACTS>\\determinism\\determinism-20260916T065011Z\\report.json\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "expansion",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\expansion"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 42.963,
+      "stdout": "run_id=run-20260916T065012Z  scope=full  mode=offline\nplanned=430 trials=430 PASS=430 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\expansion\\run-20260916T065012Z（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "expansion_replay",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\expansion\\run-20260916T065012Z\\traces.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\expansion_replay"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.915,
+      "stdout": "replay run_id=replay-20260916T065055Z  cases=430  match=430 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "llm_unimplemented",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--mode",
+        "llm"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": 0.367,
+      "stdout": "",
+      "stderr_last_line": "[配置错误] mode=llm 属于 P1，本轮未实现；不做静默 fallback。"
+    },
+    {
+      "name": "unknown_case",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "DOES_NOT_EXIST"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": 0.418,
+      "stdout": "",
+      "stderr_last_line": "[配置错误] 数据集中不存在 Case: ['DOES_NOT_EXIST']"
+    },
+    {
+      "name": "missing_dataset",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--dataset",
+        "missing.jsonl"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": 0.353,
+      "stdout": "",
+      "stderr_last_line": "[数据错误] 无法加载数据集：[Errno 2] No such file or directory: 'missing.jsonl'"
+    },
+    {
+      "name": "repeat_2",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--repeat",
+        "2",
+        "--baseline",
+        "<AUDIT_ARTIFACTS>\\subset_n02\\run-20260916T064958Z",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\repeat_2"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.474,
+      "stdout": "run_id=run-20260916T065057Z  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline run-20260916T064958Z：regressions=0 improvements=0 unchanged_failures=0 维度退化=0\n产物目录：<AUDIT_ARTIFACTS>\\repeat_2\\run-20260916T065057Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "missing_fixtures",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--fixtures",
+        "missing.json"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": 0.399,
+      "stdout": "",
+      "stderr_last_line": "FileNotFoundError: [Errno 2] No such file or directory: 'missing.json'"
+    },
+    {
+      "name": "missing_replay",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "missing.jsonl"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": 0.352,
+      "stdout": "",
+      "stderr_last_line": "FileNotFoundError: [Errno 2] No such file or directory: 'missing.jsonl'"
+    },
+    {
+      "name": "baseline_report_file",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--baseline",
+        "<AUDIT_ARTIFACTS>\\offline\\run-20260916T064955Z\\report.json"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": 0.347,
+      "stdout": "",
+      "stderr_last_line": "[配置错误] 无法加载 baseline：[Errno 2] No such file or directory: '<AUDIT_ARTIFACTS>\\\\offline\\\\run-20260916T064955Z\\\\report.json\\\\report.json'"
+    },
+    {
+      "name": "replay_invalid_raw",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\invalid_raw.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\replay_invalid_raw"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.425,
+      "stdout": "replay run_id=replay-20260916T065059Z  cases=1  match=1 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "replay_broken_tool_entry",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\broken_tool.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\replay_broken_tool_entry"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": 0.433,
+      "stdout": "",
+      "stderr_last_line": "KeyError: 'selected_tool'"
+    },
+    {
+      "name": "empty_dataset",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--dataset",
+        "<AUDIT_ARTIFACTS>\\empty_dataset.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\empty_dataset"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.377,
+      "stdout": "run_id=run-20260916T065100Z  scope=full  mode=offline\nplanned=0 trials=0 PASS=0 FAIL=0 ERROR=0 score=0.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\empty_dataset\\run-20260916T065100Z（run.json / traces.jsonl / report.json / report.md）\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "empty_replay",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\empty_replay.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\empty_replay"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.512,
+      "stdout": "replay run_id=replay-20260916T065100Z  cases=0  match=0 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "all_skipped",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--case",
+        "R01-MTX-001",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\all_skipped"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.46,
+      "stdout": "run_id=run-20260916T065101Z  scope=subset  mode=offline\nplanned=0 trials=0 PASS=0 FAIL=0 ERROR=0 score=0.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\all_skipped\\run-20260916T065101Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "out_is_file",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N01",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\out_is_file.txt"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": 0.429,
+      "stdout": "",
+      "stderr_last_line": "FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: '<AUDIT_ARTIFACTS>\\\\out_is_file.txt'"
+    },
+    {
+      "name": "historical_t01_fail",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\historical_t01_fail.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\historical_t01_fail"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.333,
+      "stdout": "replay run_id=replay-20260916T065102Z  cases=1  match=1 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "historical_t01_fixed",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--replay",
+        "<AUDIT_ARTIFACTS>\\historical_t01_fixed.jsonl",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\historical_t01_fixed"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.358,
+      "stdout": "replay run_id=replay-20260916T065102Z  cases=1  match=1 mismatch=0 error=0\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "collision_N01",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N01",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\collision"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.579,
+      "stdout": "run_id=run-20260916T065102Z  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\collision\\run-20260916T065102Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "collision_N02",
+      "command": [
+        "python",
+        "run_eval.py",
+        "--case",
+        "N02",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\collision"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.571,
+      "stdout": "run_id=run-20260916T065102Z  scope=subset  mode=offline\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\n产物目录：<AUDIT_ARTIFACTS>\\collision\\run-20260916T065102Z（run.json / traces.jsonl / report.json / report.md）\n注意：本次为 subset 运行，不能替代全量验收。\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "dataset_qa",
+      "command": [
+        "python",
+        "data_factory/validate_round1.py"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.347,
+      "stdout": "总数: 500 | case_id 唯一: 500 | 输入唯一: 500\n精确重复: 0 | 重复率: 0.00%\n覆盖: 类别 15/15 | 状态 8/8 | 原因码 13/13 | 难度 3/3\nWARN: 存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\nWARN: 未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\nWARN: 类别 MemoryInconsistency 难度分布单一: {'hard': 30}\nWARN: 类别 Hallucination 难度分布单一: {'hard': 40}\nWARN: 类别 PromptInjection 难度分布单一: {'hard': 35}\n\nQA 全部通过 ✓\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "dataset_generate",
+      "command": [
+        "python",
+        "data_factory/generate_round1.py"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.355,
+      "stdout": "{\n  \"total\": 500,\n  \"by_category\": {\n    \"Normal\": 45,\n    \"Boundary\": 40,\n    \"Abnormal\": 30,\n    \"ToolError\": 30,\n    \"ArgumentError\": 30,\n    \"Timeout\": 30,\n    \"DirtyData\": 35,\n    \"Hallucination\": 40,\n    \"MultiTurnContext\": 40,\n    \"InstructionConflict\": 30,\n    \"PromptInjection\": 35,\n    \"AgentLoop\": 25,\n    \"Retry\": 30,\n    \"Fallback\": 30,\n    \"MemoryInconsistency\": 30\n  },\n  \"by_difficulty\": {\n    \"easy\": 79,\n    \"medium\": 169,\n    \"hard\": 252\n  },\n  \"by_severity\": {\n    \"minor\": 84,\n    \"major\": 186,\n    \"critical\": 230\n  },\n  \"by_status\": {\n    \"answered\": 296,\n    \"invalid_input\": 9,\n    \"not_found\": 21,\n    \"partial\": 66,\n    \"unsupported\": 31,\n    \"unavailable\": 51,\n    \"clarification\": 16,\n    \"conflict\": 10\n  },\n  \"unique_inputs\": 500\n}\nOK -> <CLEAN_CLONE>\\datasets\\expansion\\round_001.jsonl\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "dataset_qa_after_generate",
+      "command": [
+        "python",
+        "data_factory/validate_round1.py"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": 0.34,
+      "stdout": "总数: 500 | case_id 唯一: 500 | 输入唯一: 500\n精确重复: 0 | 重复率: 0.00%\n覆盖: 类别 15/15 | 状态 8/8 | 原因码 13/13 | 难度 3/3\nWARN: 存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\nWARN: 未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\nWARN: 类别 MemoryInconsistency 难度分布单一: {'hard': 30}\nWARN: 类别 PromptInjection 难度分布单一: {'hard': 35}\nWARN: 类别 Hallucination 难度分布单一: {'hard': 40}\n\nQA 全部通过 ✓\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "qa_native_encoding",
+      "command": [
+        "python",
+        "data_factory/validate_round1.py"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": null,
+      "stdout": "总数: 500 | case_id 唯一: 500 | 输入唯一: 500\r\n精确重复: 0 | 重复率: 0.00%\r\n覆盖: 类别 15/15 | 状态 8/8 | 原因码 13/13 | 难度 3/3\r\nWARN: 存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\r\nWARN: 未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\r\nWARN: 类别 PromptInjection 难度分布单一: {'hard': 35}\r\nWARN: 类别 MemoryInconsistency 难度分布单一: {'hard': 30}\r\nWARN: 类别 Hallucination 难度分布单一: {'hard': 40}\r\n",
+      "stderr_last_line": "UnicodeEncodeError: 'gbk' codec can't encode character '\\u2713' in position 10: illegal multibyte sequence"
+    },
+    {
+      "name": "qa_utf8_flag",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "data_factory/validate_round1.py"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": null,
+      "stdout": "总数: 500 | case_id 唯一: 500 | 输入唯一: 500\r\n精确重复: 0 | 重复率: 0.00%\r\n覆盖: 类别 15/15 | 状态 8/8 | 原因码 13/13 | 难度 3/3\r\nWARN: 存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条\r\nWARN: 未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）\r\nWARN: 类别 PromptInjection 难度分布单一: {'hard': 35}\r\nWARN: 类别 Hallucination 难度分布单一: {'hard': 40}\r\nWARN: 类别 MemoryInconsistency 难度分布单一: {'hard': 30}\r\n\r\nQA 全部通过 ✓\r\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "wrong_cwd",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "<CLEAN_CLONE>\\run_eval.py"
+      ],
+      "cwd": "<AUDIT_TEMP>",
+      "exit_code": 2,
+      "elapsed_seconds": null,
+      "stdout": "",
+      "stderr_last_line": "[数据错误] 无法加载数据集：[Errno 2] No such file or directory: 'datasets/cases.jsonl'"
+    },
+    {
+      "name": "controlled_failure",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N01",
+        "--fixtures",
+        "<AUDIT_ARTIFACTS>\\controlled_failure_fixtures.json",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\controlled_failure"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 1,
+      "elapsed_seconds": null,
+      "stdout": "run_id=run-20260916T065309Z  scope=subset  mode=offline\r\nplanned=1 trials=1 PASS=0 FAIL=1 ERROR=0 score=0.0\r\n  失败 N01 [FAIL] ['task_success/TS-FACTS']\r\n  baseline：NOT_REQUESTED（未请求比较，不构成“无回归”结论）\r\n产物目录：<AUDIT_ARTIFACTS>\\controlled_failure\\run-20260916T065309Z（run.json / traces.jsonl / report.json / report.md）\r\n注意：本次为 subset 运行，不能替代全量验收。\r\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "baseline_not_comparable",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--case",
+        "N01",
+        "--baseline",
+        "<AUDIT_ARTIFACTS>\\offline\\run-20260916T064955Z",
+        "--out",
+        "<AUDIT_ARTIFACTS>\\baseline_not_comparable"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": null,
+      "stdout": "run_id=run-20260916T065310Z  scope=subset  mode=offline\r\nplanned=1 trials=1 PASS=1 FAIL=0 ERROR=0 score=100.0\r\n  baseline 比较：NOT_COMPARABLE（run-20260916T064955Z vs run-20260916T065310Z）\r\n    - case 集合不同: baseline_only=['B01', 'B02', 'B03', 'B04', 'C01', 'C02', 'C03', 'C04', 'H01', 'H02', 'H03', 'H04', 'I01', 'I02', 'I03', 'I04', 'M01', 'M02', 'M03', 'M04', 'N02', 'N03', 'N04', 'T01', 'T02', 'T03', 'T04'] current_only=[]\r\n产物目录：<AUDIT_ARTIFACTS>\\baseline_not_comparable\\run-20260916T065310Z（run.json / traces.jsonl / report.json / report.md）\r\n注意：本次为 subset 运行，不能替代全量验收。\r\n",
+      "stderr_last_line": ""
+    },
+    {
+      "name": "archived_expansion_baseline",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "run_eval.py",
+        "--dataset",
+        "datasets/expansion/round_001.jsonl",
+        "--baseline",
+        "docs/evidence/expansion_v2_b10_defect/run-20260913T162957Z"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 2,
+      "elapsed_seconds": null,
+      "stdout": "",
+      "stderr_last_line": "[配置错误] 无法加载 baseline：[Errno 2] No such file or directory: 'docs\\\\evidence\\\\expansion_v2_b10_defect\\\\run-20260913T162957Z\\\\traces.jsonl'"
+    },
+    {
+      "name": "demo_historical_fail_pass",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-c",
+        "import json; from pathlib import Path; from order_eval.schemas import load_cases; from order_eval.evaluator import evaluate; c=next(c for c in load_cases('datasets/cases.jsonl') if c['case_id']=='T01'); paths=sorted(Path('docs/evidence/t01_timeout_retry_defect').glob('trace_*_T01.json')); es=[(p.name,evaluate(c,json.loads(p.read_text(encoding='utf-8')))) for p in paths]; print(json.dumps([{'trace':n,'overall':e['overall'],'dimensions':{k:v['status'] for k,v in e['dimensions'].items()},'failure_reasons':e['failure_reasons']} for n,e in es],ensure_ascii=False,indent=2))"
+      ],
+      "cwd": "<CLEAN_CLONE>",
+      "exit_code": 0,
+      "elapsed_seconds": null,
+      "stdout": "[\r\n  {\r\n    \"trace\": \"trace_FAIL_T01.json\",\r\n    \"overall\": \"FAIL\",\r\n    \"dimensions\": {\r\n      \"task_success\": \"FAIL\",\r\n      \"tool_selection\": \"PASS\",\r\n      \"tool_argument\": \"PASS\",\r\n      \"groundedness\": \"PASS\",\r\n      \"output_format\": \"PASS\",\r\n      \"constraint_following\": \"PASS\"\r\n    },\r\n    \"failure_reasons\": [\r\n      {\r\n        \"dimension\": \"task_success\",\r\n        \"reason_code\": \"TS-STATUS\",\r\n        \"message\": \"TS-STATUS: expected='answered' actual='unavailable'\",\r\n        \"refs\": []\r\n      },\r\n      {\r\n        \"dimension\": \"task_success\",\r\n        \"reason_code\": \"TS-REASONS\",\r\n        \"message\": \"TS-REASONS: expected=[] actual=['TOOL_UNAVAILABLE']\",\r\n        \"refs\": []\r\n      },\r\n      {\r\n        \"dimension\": \"task_success\",\r\n        \"reason_code\": \"TS-FACTS\",\r\n        \"message\": \"TS-FACTS: expected=\\\"order_status='PAID'\\\" actual=\\\"order_status='<缺失>'\\\"\",\r\n        \"refs\": []\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"trace\": \"trace_FIXED_T01.json\",\r\n    \"overall\": \"PASS\",\r\n    \"dimensions\": {\r\n      \"task_success\": \"PASS\",\r\n      \"tool_selection\": \"PASS\",\r\n      \"tool_argument\": \"PASS\",\r\n      \"groundedness\": \"PASS\",\r\n      \"output_format\": \"PASS\",\r\n      \"constraint_following\": \"PASS\"\r\n    },\r\n    \"failure_reasons\": []\r\n  }\r\n]\r\n",
+      "stderr_last_line": ""
+    }
+  ],
+  "probes": {
+    "second_trial_regression": {
+      "status": "OK",
+      "comparable": true,
+      "reasons": [],
+      "baseline_run_id": "run-20260916T064955Z",
+      "current_run_id": "run-20260916T064955Z",
+      "new_regressions": [],
+      "improvements": [],
+      "unchanged_failures": [],
+      "unchanged_pass": 1,
+      "dimension_regressions": [],
+      "baseline_score": 100.0,
+      "current_score": 100.0,
+      "probe_note": "Synthetic comparison probe: only trial 2 evaluation changed; reports held constant to isolate trace comparison. Not a new agent execution."
+    },
+    "datasets": {
+      "v1_cases": 28,
+      "v2_cases": 500,
+      "v2_context_skipped": 70,
+      "v2_executable_with_llm_judge_metadata": 35
+    },
+    "collision_directories": [
+      "run-20260916T065102Z"
+    ],
+    "collision_final_traces": {
+      "run-20260916T065102Z": [
+        "N01"
+      ]
+    },
+    "generator_changed_tracked_files": [
+      "datasets/expansion/qa_summary.json"
+    ],
+    "generator_after_qa_changed_tracked_files": [
+      "datasets/expansion/qa_summary.json"
+    ],
+    "invalid_raw_valid_parsed": {
+      "overall": "PASS",
+      "dimensions": {
+        "task_success": "PASS",
+        "tool_selection": "PASS",
+        "tool_argument": "PASS",
+        "groundedness": "PASS",
+        "output_format": "PASS",
+        "constraint_following": "PASS"
+      },
+      "failure_reasons": []
+    },
+    "correct_answer_fake_reference": {
+      "overall": "FAIL",
+      "dimensions": {
+        "task_success": "PASS",
+        "tool_selection": "PASS",
+        "tool_argument": "PASS",
+        "groundedness": "FAIL",
+        "output_format": "PASS",
+        "constraint_following": "PASS"
+      },
+      "failure_reasons": [
+        {
+          "dimension": "groundedness",
+          "reason_code": "GRD-ENTRY-VALID",
+          "message": "GRD-ENTRY-VALID: expected='证据指向本 Case 成功调用的合法字段' actual='call_id=call-999 不存在或未成功执行'",
+          "refs": [
+            {
+              "target": "facts.order_status",
+              "call_id": "call-999",
+              "pointer": "/data/status"
+            }
+          ]
+        },
+        {
+          "dimension": "groundedness",
+          "reason_code": "GRD-FACT-COVERED",
+          "message": "GRD-FACT-COVERED: expected='facts.order_status 有合法且值一致的证据' actual='无证据'",
+          "refs": [
+            {
+              "fact": "order_status"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source_inventory": [
+    {
+      "path": ".gitignore",
+      "bytes": 103,
+      "sha256": "0a40f472b7fbd2960612bd891daf56a16af09b0dad66f7a50e11d77547283a33"
+    },
+    {
+      "path": "ACCEPTANCE_CRITERIA.md",
+      "bytes": 14311,
+      "sha256": "2ac8da6159811a21817c8af484e6c39717d2d2ccc4d2491f94f581a579467051"
+    },
+    {
+      "path": "BUGFIX_LOG.md",
+      "bytes": 9748,
+      "sha256": "87b184d36ed915b5df29c95b7bc3249c43560711287070a09f7216cd5424c0aa"
+    },
+    {
+      "path": "IMPLEMENTATION_REPORT.md",
+      "bytes": 12485,
+      "sha256": "1459753f8d9b072547567a8397d39458ecac5f9029db368ae1e12d4cbabb169b"
+    },
+    {
+      "path": "IMPLEMENTATION_TASKS.md",
+      "bytes": 15323,
+      "sha256": "d374d43e88a3781b408da6ff6a56a057cd683b7f374fad3727765feae3695b8c"
+    },
+    {
+      "path": "INTERVIEW_STORY.md",
+      "bytes": 15121,
+      "sha256": "67a52a78a049422da3cfde93aa092d315de9635a669dce736066db6d72ca221a"
+    },
+    {
+      "path": "P0_IMPLEMENTATION_PLAN.md",
+      "bytes": 6158,
+      "sha256": "5411ad16afc4c659e5714749c47145474fd7271d3ed7b5895a0d43c7b71ad104"
+    },
+    {
+      "path": "PROJECT_SPEC.md",
+      "bytes": 35647,
+      "sha256": "95f6b21ecd5623efeacabbb5f0e48bfe70771f96e244c8358932375b102c7a32"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3638,
+      "sha256": "f9d24b3d47c9904fa2eea8db6fcdb95ffb64ca2c3aee747991bcab864eb5798a"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 4007,
+      "sha256": "b92e217f362952b146f94576a5648403ae6b00aa5cd88f7f4c53a5334360bd4f"
+    },
+    {
+      "path": "data_factory/generate_round1.py",
+      "bytes": 116686,
+      "sha256": "2fd12f19b899cfd725e006f198920ba6d47274b2215907e3ddcf8c8e1bce7ae4"
+    },
+    {
+      "path": "data_factory/validate_round1.py",
+      "bytes": 20710,
+      "sha256": "dd28de6443f68a03c2986b24bd8fbd1772ca42abaae49df95ec143bff7af38fa"
+    },
+    {
+      "path": "datasets/cases.jsonl",
+      "bytes": 23747,
+      "sha256": "55fef164107332777ddcac722fed47d3dfc40ad6ee93a1839222e4a675d49868"
+    },
+    {
+      "path": "datasets/expansion/dataset_report.md",
+      "bytes": 10216,
+      "sha256": "a937445acafd3770ddf082229cfced70bbfffeef694c05125766c5ad549dbebb"
+    },
+    {
+      "path": "datasets/expansion/norm_dup_allowed.json",
+      "bytes": 3215,
+      "sha256": "664dc8c642b99b2806d6b4789385f561d2c4e342a13a1cecffdc837e84640347"
+    },
+    {
+      "path": "datasets/expansion/qa_summary.json",
+      "bytes": 3966,
+      "sha256": "d669e0710f0599225f1c1a3b5bf46f0d5b2b1df70e4faa6bf893b5d9cb866ad1"
+    },
+    {
+      "path": "datasets/expansion/round_001.jsonl",
+      "bytes": 1142376,
+      "sha256": "f98a4a6fb154d0acabad2730ab0805368f73a165c6306048da623fd7c4ae7d55"
+    },
+    {
+      "path": "datasets/fixtures.json",
+      "bytes": 4039,
+      "sha256": "a84544184c16bde948ffeae9a81638ad38d3fbe9f78715278ca880c1f51a0146"
+    },
+    {
+      "path": "docs/evidence/ac02_network_intercept.md",
+      "bytes": 1886,
+      "sha256": "f873cf5c615d8c09cc8201bc7838586eb1f2be39909ab9a348d877221f3970b6"
+    },
+    {
+      "path": "docs/evidence/determinism_3x_FINAL_GATE.json",
+      "bytes": 552,
+      "sha256": "4036fe0adf81990dbe45c5efcf2a718a9f23655e55a1308dc1518eff232eade5"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/README.md",
+      "bytes": 328,
+      "sha256": "fbd82b340cccb9e99ed7fadf5076bbc1bec66ebdd348ae978ecb9723521abf8e"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/report.json",
+      "bytes": 6799,
+      "sha256": "351ee7497736fc72c84d44baa8fbc324ebc0c839f7e8a07ed601d8bd0ba5a33b"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/report.md",
+      "bytes": 2953,
+      "sha256": "a8b44f9b7748d2c5b7f2e41dc935f3ec48cd0d8c28f1ecb520c47c53fa468378"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162730Z/run.json",
+      "bytes": 839,
+      "sha256": "3ccc86598384aa42d1c869f08abc5f23ab523e2bb3f63d1cb2a9f012f9ba4d48"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/report.json",
+      "bytes": 4989,
+      "sha256": "c4da1aa078413cea62202392d624b5eb57329773f413ecb5f96ad33c8aa02ec9"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/report.md",
+      "bytes": 2073,
+      "sha256": "36967d51e711bc39dfcf602b2638cf7a01766a9b55d7018e9117cf6749661b57"
+    },
+    {
+      "path": "docs/evidence/expansion_v2_b10_defect/run-20260913T162957Z/run.json",
+      "bytes": 839,
+      "sha256": "338f53ad11dd4477edfe146fb5b3fd631e24d3623d7de2ad119dc7a26ceb3ec1"
+    },
+    {
+      "path": "docs/evidence/replay_FINAL_GATE.json",
+      "bytes": 19800,
+      "sha256": "6c7318566fa5dd03c2ef407a955b2cf281f3275ccef6118938c10c8034a81acb"
+    },
+    {
+      "path": "docs/evidence/report_FINAL_GATE_run-20260910T163653Z.json",
+      "bytes": 2695,
+      "sha256": "00126ec442f6b8161889e492a67e31c13c2a38186a7dc11f358646e437d09746"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/report_FAIL_run-20260910T162055Z.json",
+      "bytes": 3005,
+      "sha256": "a972eea2bb6080119919ec17963fc78c4eb3f090fe78fb2c4166b1d3d190ed0f"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/report_FAIL_run-20260910T162055Z.md",
+      "bytes": 1835,
+      "sha256": "2b61fdb975e86bf72207aee9d26e6aa521e2c8ce1d523141b0acbded4b5b357f"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/report_FIXED_run-20260910T162250Z.json",
+      "bytes": 2694,
+      "sha256": "1859e379db09a8a672fa0c5d97ad5dd8a689b602decf9f4614beddab95f84a71"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/report_FIXED_run-20260910T162250Z.md",
+      "bytes": 1683,
+      "sha256": "407678852c7c298e41b4bb886292f9e2e5bd1e48c7d401a09e7874fecf178b57"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/trace_FAIL_T01.json",
+      "bytes": 8082,
+      "sha256": "7e156289c84286c07c99ad70a4860d0d2398203413c21a4bcd7a6ce06c6cd6ac"
+    },
+    {
+      "path": "docs/evidence/t01_timeout_retry_defect/trace_FIXED_T01.json",
+      "bytes": 7092,
+      "sha256": "c7b61353f4b96294de6557898e20939174c99f9caac8eeab70258f94cfc15041"
+    },
+    {
+      "path": "order_eval/__init__.py",
+      "bytes": 118,
+      "sha256": "254e6f23fa439129794522e376a34d72d1a08c17ec015a969677d0fb87977046"
+    },
+    {
+      "path": "order_eval/agent.py",
+      "bytes": 8480,
+      "sha256": "2099c8dceec3bc250786d72918229244a1c02ba5acf97228db1f9e44ab720698"
+    },
+    {
+      "path": "order_eval/evaluator.py",
+      "bytes": 13579,
+      "sha256": "c580eed4888aaf535a212d2dbe558938e53345301af6e4e1a1d741f8484f97ae"
+    },
+    {
+      "path": "order_eval/runner.py",
+      "bytes": 29918,
+      "sha256": "bc953c25a2b3a440e00ab636afe35c3a3c7188edad426d431b2a5668fb8d0271"
+    },
+    {
+      "path": "order_eval/schemas.py",
+      "bytes": 19217,
+      "sha256": "a3fd4001fbd908374ef8d32466a12062c89e23ff63782b75fc80b770db9e84a2"
+    },
+    {
+      "path": "order_eval/tools.py",
+      "bytes": 10304,
+      "sha256": "f98a4a8715a05b8302c73f85fa49544c6fea845a9e9cd71f198ff5cec9744478"
+    },
+    {
+      "path": "pytest.ini",
+      "bytes": 116,
+      "sha256": "f6bef52d9dbc000b649ae6b41ca80dcdc8a9b7f5fd11df17ec9cfc23b127f146"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 98,
+      "sha256": "dd090a0a945be76b2889514e0aa0c30950082dc1f73b450f226c94e28ccfe56f"
+    },
+    {
+      "path": "run_eval.py",
+      "bytes": 8257,
+      "sha256": "256b4606e2f61285f59f1c022e5fcb20b3044315155e5697814260770abe1f12"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 441,
+      "sha256": "010737f2310ee199af74a12e15ad2dcb3dbe51a9af784bb146efdc69430e2150"
+    },
+    {
+      "path": "tests/test_evaluator.py",
+      "bytes": 10875,
+      "sha256": "789cf2628cf2da6612beaf98593f204ae595c3c416d453c7faee87e887fd2e2e"
+    },
+    {
+      "path": "tests/test_expansion_v2.py",
+      "bytes": 8724,
+      "sha256": "960359f52235df97f9ddd3170d7d2d3352d7cf6709ebae206c9a2dd5cce65e0a"
+    },
+    {
+      "path": "tests/test_regression.py",
+      "bytes": 11595,
+      "sha256": "d85fd590ce8a330f64cbed51f66ca2da8efc517ab23f44e530a7a2b35f9ce500"
+    },
+    {
+      "path": "tests/test_scenarios.py",
+      "bytes": 5238,
+      "sha256": "5053dd2576a2b7ad779d16287be68030152c50162338ddabe78b94a839a44344"
+    },
+    {
+      "path": "tests/test_tools.py",
+      "bytes": 10950,
+      "sha256": "cb310b3262b81fef26a8ea16da50edc615fab2805fed5f383e5e9e5393f7d1f6"
+    }
+  ],
+  "contest_verification": {
+    "contest_url": "https://www.producthunt.com/contests/gpt-6-astra-challenge",
+    "announcement_url": "https://www.producthunt.com/p/producthunt/product-hunt-teams-up-with-openaidevs-for-the-gpt-6-astra-challenge",
+    "confirmed": "Official page states September 18, 2026; announcement and reply specify scheduling launch for the 18th.",
+    "not_verified": [
+      "Exact timezone and cutoff",
+      "Eligibility details",
+      "Required Astra evidence",
+      "Whether this existing project with current Astra contribution qualifies"
+    ],
+    "observed_limitations": [
+      "Linked Notion Submission Guide returned 404",
+      "Submission form redirected to login",
+      "Jina Reader returned a security verification page; standard web reader retrieved official page"
+    ]
+  },
+  "harness_note": "First harness run failed only while printing a successful QA result to GBK stdout. Existing command JSON logs retained; temporary harness stdout changed to UTF-8 and remaining checks resumed without rerunning completed commands.",
+  "commit_for_audit_changes": null
+}

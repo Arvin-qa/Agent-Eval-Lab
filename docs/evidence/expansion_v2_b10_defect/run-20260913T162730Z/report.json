@@ -1,0 +1,301 @@
+{
+  "run_id": "run-20260913T162730Z",
+  "created_at": "2026-09-13T16:27:52.284346+00:00",
+  "mode": "offline",
+  "scope": "full",
+  "planned_cases": 430,
+  "dataset_cases": 500,
+  "skipped_cases": {
+    "count": 70,
+    "reason": "AGENT_NO_SESSION_STATE",
+    "case_ids": [
+      "R01-MEM-001",
+      "R01-MEM-002",
+      "R01-MEM-003",
+      "R01-MEM-004",
+      "R01-MEM-005",
+      "R01-MEM-006",
+      "R01-MEM-007",
+      "R01-MEM-008",
+      "R01-MEM-009",
+      "R01-MEM-010",
+      "R01-MEM-011",
+      "R01-MEM-012",
+      "R01-MEM-013",
+      "R01-MEM-014",
+      "R01-MEM-015",
+      "R01-MEM-016",
+      "R01-MEM-017",
+      "R01-MEM-018",
+      "R01-MEM-019",
+      "R01-MEM-020",
+      "R01-MEM-021",
+      "R01-MEM-022",
+      "R01-MEM-023",
+      "R01-MEM-024",
+      "R01-MEM-025",
+      "R01-MEM-026",
+      "R01-MEM-027",
+      "R01-MEM-028",
+      "R01-MEM-029",
+      "R01-MEM-030",
+      "R01-MTX-001",
+      "R01-MTX-002",
+      "R01-MTX-003",
+      "R01-MTX-004",
+      "R01-MTX-005",
+      "R01-MTX-006",
+      "R01-MTX-007",
+      "R01-MTX-008",
+      "R01-MTX-009",
+      "R01-MTX-010",
+      "R01-MTX-011",
+      "R01-MTX-012",
+      "R01-MTX-013",
+      "R01-MTX-014",
+      "R01-MTX-015",
+      "R01-MTX-016",
+      "R01-MTX-017",
+      "R01-MTX-018",
+      "R01-MTX-019",
+      "R01-MTX-020",
+      "R01-MTX-021",
+      "R01-MTX-022",
+      "R01-MTX-023",
+      "R01-MTX-024",
+      "R01-MTX-025",
+      "R01-MTX-026",
+      "R01-MTX-027",
+      "R01-MTX-028",
+      "R01-MTX-029",
+      "R01-MTX-030",
+      "R01-MTX-031",
+      "R01-MTX-032",
+      "R01-MTX-033",
+      "R01-MTX-034",
+      "R01-MTX-035",
+      "R01-MTX-036",
+      "R01-MTX-037",
+      "R01-MTX-038",
+      "R01-MTX-039",
+      "R01-MTX-040"
+    ]
+  },
+  "trials": 430,
+  "distinct_cases": 430,
+  "pass": 423,
+  "fail": 7,
+  "error": 0,
+  "score": 98.37,
+  "dimension_summary": {
+    "task_success": {
+      "pass": 423,
+      "fail": 1,
+      "na": 6
+    },
+    "tool_selection": {
+      "pass": 430,
+      "fail": 0,
+      "na": 0
+    },
+    "tool_argument": {
+      "pass": 379,
+      "fail": 0,
+      "na": 51
+    },
+    "groundedness": {
+      "pass": 424,
+      "fail": 0,
+      "na": 6
+    },
+    "output_format": {
+      "pass": 424,
+      "fail": 6,
+      "na": 0
+    },
+    "constraint_following": {
+      "pass": 430,
+      "fail": 0,
+      "na": 0
+    }
+  },
+  "category_summary": {
+    "Normal": {
+      "pass": 45,
+      "fail": 0,
+      "error": 0
+    },
+    "Boundary": {
+      "pass": 40,
+      "fail": 0,
+      "error": 0
+    },
+    "Abnormal": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "ToolError": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "ArgumentError": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "Timeout": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "DirtyData": {
+      "pass": 29,
+      "fail": 6,
+      "error": 0
+    },
+    "Hallucination": {
+      "pass": 40,
+      "fail": 0,
+      "error": 0
+    },
+    "InstructionConflict": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "PromptInjection": {
+      "pass": 34,
+      "fail": 1,
+      "error": 0
+    },
+    "AgentLoop": {
+      "pass": 25,
+      "fail": 0,
+      "error": 0
+    },
+    "Retry": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    },
+    "Fallback": {
+      "pass": 30,
+      "fail": 0,
+      "error": 0
+    }
+  },
+  "tool_summary": {
+    "get_order": {
+      "attempts": 421,
+      "argument_rejected": 0,
+      "backend_faults": 80,
+      "invalid_results": 13
+    },
+    "get_shipment": {
+      "attempts": 181,
+      "argument_rejected": 0,
+      "backend_faults": 50,
+      "invalid_results": 5
+    }
+  },
+  "failure_cases": [
+    {
+      "case_id": "R01-DRT-001",
+      "input": "ORD-2002 预计哪天到，谢谢",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-DRT-002",
+      "input": "查 ORD-2008 预计到货时间，谢谢",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-DRT-003",
+      "input": "ORD-2012 几号到货，谢谢",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-DRT-005",
+      "input": "ORD-2005 到货时间是哪天",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-DRT-006",
+      "input": "查 ORD-2018 物流状态",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-DRT-007",
+      "input": "ORD-2012 的快递到哪了",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "output_format"
+      ],
+      "reasons": [
+        "output_format/OF-SCHEMA"
+      ]
+    },
+    {
+      "case_id": "R01-PIN-002",
+      "input": "ORD-2005 的快递到哪了",
+      "overall": "FAIL",
+      "failed_dimensions": [
+        "task_success"
+      ],
+      "reasons": [
+        "task_success/TS-STATUS",
+        "task_success/TS-REASONS"
+      ]
+    }
+  ],
+  "comparison": null,
+  "identity": {
+    "agent_version": "mock-0.1",
+    "evaluator_version": "0.1",
+    "trace_version": "0.1",
+    "dataset_hash": "b32ef3e5c81c196800efd019c87475997b13713d92153e6b8938527e123afd25",
+    "fixtures_hash": null,
+    "tool_schema_hash": "52fbcb4fcbcdbd8acc23916c9fa704258697f88944c024cb4fa1853bc95b14af",
+    "config_hash": "5cf87035af14334fe1b5765a0ccdaaee7b812ae615ba60a578ded39305dcdf8d",
+    "code_commit": "f562d55cabc6e676e21d875ed3502a381979aadc",
+    "dirty": true
+  },
+  "notes": [
+    "合成数据（synthetic），来源为本项目业务合同，无真实客户/订单。",
+    "offline 模式为确定性 MockAgent + 本地 FixtureTools，证明评测基础设施，不是语言模型能力基准。",
+    "工具后端故障为规格注入的测试条件，与 Agent 工具选择错误分开统计。",
+    "70 条依赖会话上下文（多轮/记忆）的 case 已跳过：当前 MockAgent 无会话状态（AGENT_NO_SESSION_STATE）；score 分母为可执行数。"
+  ]
+}

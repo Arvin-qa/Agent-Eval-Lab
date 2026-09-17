@@ -1,0 +1,171 @@
+{
+  "total": 500,
+  "unique_case_ids": 500,
+  "unique_inputs": 500,
+  "exact_dup_inputs": 0,
+  "dup_rate": 0.0,
+  "coverage": {
+    "category": {
+      "Normal": 45,
+      "Boundary": 40,
+      "Abnormal": 30,
+      "ToolError": 30,
+      "ArgumentError": 30,
+      "Timeout": 30,
+      "DirtyData": 35,
+      "Hallucination": 40,
+      "MultiTurnContext": 40,
+      "InstructionConflict": 30,
+      "PromptInjection": 35,
+      "AgentLoop": 25,
+      "Retry": 30,
+      "Fallback": 30,
+      "MemoryInconsistency": 30
+    },
+    "difficulty": {
+      "easy": 79,
+      "medium": 169,
+      "hard": 252
+    },
+    "severity": {
+      "minor": 84,
+      "major": 186,
+      "critical": 230
+    },
+    "status": {
+      "answered": 296,
+      "invalid_input": 9,
+      "not_found": 21,
+      "partial": 66,
+      "unsupported": 31,
+      "unavailable": 51,
+      "clarification": 16,
+      "conflict": 10
+    },
+    "reason": {
+      "INVALID_INPUT": 9,
+      "NOT_SHIPPED": 14,
+      "ORDER_NOT_FOUND": 21,
+      "ETA_NOT_AVAILABLE": 23,
+      "UNSUPPORTED_ACTION": 17,
+      "UNSUPPORTED_QUERY": 14,
+      "TOOL_UNAVAILABLE": 62,
+      "INVALID_TOOL_RESULT": 18,
+      "MISSING_ORDER_ID": 12,
+      "AMBIGUOUS_ORDER_ID": 4,
+      "DATA_CONFLICT": 10,
+      "AMOUNT_NOT_AVAILABLE": 8,
+      "SHIPMENT_NOT_FOUND": 6
+    },
+    "tool": {
+      "get_order": 444,
+      "get_shipment": 174
+    },
+    "fact_key": {
+      "order_status": 327,
+      "amount_cents": 35,
+      "currency": 35,
+      "shipment_status": 129,
+      "eta": 14
+    },
+    "forbidden": {
+      "invent_fact": 500,
+      "wrong_order": 500,
+      "extra_tool": 500,
+      "write_action": 500,
+      "excess_retry": 500,
+      "any_tool_call": 56,
+      "fabricate_eta": 24,
+      "obey_tool_text": 32,
+      "fabricate_amount": 17,
+      "fabricate_status": 49,
+      "fabricate_tracking_no": 9,
+      "resolve_wrong_order": 21,
+      "skip_verification": 22,
+      "precommit_unverified": 2,
+      "obey_user_injection": 13,
+      "unbounded_retry": 19,
+      "call_before_precondition": 5,
+      "adopt_memory_value": 30,
+      "fabricate_currency": 4
+    },
+    "fault": {
+      "get_order:error": 17,
+      "get_shipment:error": 14,
+      "get_order:timeout+ok": 21,
+      "get_order:timeout+timeout": 18,
+      "get_shipment:timeout+ok": 16,
+      "get_shipment:timeout+timeout": 10,
+      "get_order:timeout+timeout+timeout": 3
+    }
+  },
+  "cat_diff": {
+    "Normal": {
+      "easy": 37,
+      "medium": 8
+    },
+    "Boundary": {
+      "medium": 15,
+      "easy": 21,
+      "hard": 4
+    },
+    "Abnormal": {
+      "easy": 21,
+      "hard": 8,
+      "medium": 1
+    },
+    "ToolError": {
+      "medium": 23,
+      "hard": 7
+    },
+    "ArgumentError": {
+      "hard": 16,
+      "medium": 14
+    },
+    "Timeout": {
+      "medium": 28,
+      "hard": 2
+    },
+    "DirtyData": {
+      "hard": 21,
+      "medium": 14
+    },
+    "Hallucination": {
+      "hard": 40
+    },
+    "MultiTurnContext": {
+      "hard": 34,
+      "medium": 6
+    },
+    "InstructionConflict": {
+      "hard": 26,
+      "medium": 4
+    },
+    "PromptInjection": {
+      "hard": 35
+    },
+    "AgentLoop": {
+      "hard": 19,
+      "medium": 6
+    },
+    "Retry": {
+      "medium": 24,
+      "hard": 6
+    },
+    "Fallback": {
+      "medium": 26,
+      "hard": 4
+    },
+    "MemoryInconsistency": {
+      "hard": 30
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "存在 2 个 12-gram 被 >6 条共享（模板化风险），最长共享 8 条",
+    "未作为必需事实覆盖: ['delivered_at', 'tracking_no']（合同中属可有可无附加事实）",
+    "类别 PromptInjection 难度分布单一: {'hard': 35}",
+    "类别 Hallucination 难度分布单一: {'hard': 40}",
+    "类别 MemoryInconsistency 难度分布单一: {'hard': 30}"
+  ]
+}

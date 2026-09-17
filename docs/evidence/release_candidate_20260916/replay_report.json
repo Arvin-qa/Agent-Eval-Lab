@@ -1,0 +1,752 @@
+{
+  "run_id": "replay-20260916T121641588328Z-96ab2e6b66864f4f9b175ad7116bb354",
+  "created_at": "2026-09-16T12:16:41.588375+00:00",
+  "mode": "replay",
+  "scope": "full",
+  "source_traces": "artifacts/demo-full/run-20260916T121638585309Z-a33f57f917ee495ba57f411131dff43d/traces.jsonl",
+  "dataset_hash": "55fef164107332777ddcac722fed47d3dfc40ad6ee93a1839222e4a675d49868",
+  "cases": 28,
+  "judgment_match": 28,
+  "judgment_mismatch": 0,
+  "error": 0,
+  "fail": 0,
+  "run_errors": [],
+  "status": "COMPLETED",
+  "mismatched_cases": [],
+  "corrupt_lines": [],
+  "results": [
+    {
+      "case_id": "N01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "N02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "N03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "N04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "B01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "B02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "B03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "B04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "I01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "I02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "I03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "I04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "N/A",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "T01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "T02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "T03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "T04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "M01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "M02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "M03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "M04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "C01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "C02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "C03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "C04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "H01",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "H02",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "H03",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    },
+    {
+      "case_id": "H04",
+      "status": "MATCH",
+      "previous": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      },
+      "replayed": {
+        "overall": "PASS",
+        "dims": {
+          "task_success": "PASS",
+          "tool_selection": "PASS",
+          "tool_argument": "PASS",
+          "groundedness": "PASS",
+          "output_format": "PASS",
+          "constraint_following": "PASS"
+        }
+      }
+    }
+  ],
+  "evaluator_version": "0.2",
+  "notes": [
+    "重放不执行 Agent 与工具，只做 Evaluator 重评（§8）。",
+    "同一 Evaluator 版本下判定应完全一致；MISMATCH 属发现缺陷，不是重新运行。"
+  ]
+}
