@@ -52,8 +52,9 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip check
 .\.venv\Scripts\python.exe -X utf8 run_eval.py --mode offline
+```
 
-后续命令均从克隆后的仓库根目录运行。不需要激活脚本、不修改系统编码或环境变量。依赖下载需要网络；评测无需网络。-X utf8 只对当前 Python 进程生效，避免 Windows 中文/符号输出编码问题。
+后续命令均从克隆后的仓库根目录运行。不需要激活脚本、不修改系统编码或环境变量。依赖下载需要网络；评测无需网络。`-X utf8` 只对当前 Python 进程生效，用于避免 Windows 中文/符号输出编码问题。
 
 命令会打印本次产物目录。打开其中的 `report.md` 看汇总，`traces.jsonl` 看输入、调用、输出、每维 checks 和 `failure_reasons`；`run.json` 保存配置及版本/数据散列。
 
@@ -147,7 +148,6 @@ QA 使用 UTF-8；存在模板共享等 warning，不应宣称数据质量没有
 - 仅 `--repeat 1`；完整 multi-trial 未实现。`--check-determinism 3` 是三次独立套件执行，不是模型采样统计。
 - Trace 校验可以发现合同损坏和不一致，不提供密码学防篡改证明。baseline 需要完整兼容产物，不能用旧报告摘要代替。
 - 第一阶段报告及原有规划文档是历史记录；当前可运行能力以本 README、代码和发布门禁证据为准。
-- 仓库公开地址、许可选择和 Product Hunt 发布仍待用户确认；本次没有推送或公开发布。
 
 ## Built with GPT-6 Astra
 
